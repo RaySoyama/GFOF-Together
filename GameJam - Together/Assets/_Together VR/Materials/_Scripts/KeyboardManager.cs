@@ -5,6 +5,8 @@ using UnityEngine;
 public class KeyboardManager : MonoBehaviour
 {
     public GameObject oculusPrefab;
+    public Vector3 defaultStartLocation;
+
     public DigitalRuby.RainMaker.RainScript rainScript;
 
     void Start()
@@ -15,9 +17,10 @@ public class KeyboardManager : MonoBehaviour
     void Update()
     {
 
+
         if (Input.GetKeyUp(KeyCode.R))
         {
-            oculusPrefab.transform.position = Vector3.zero;
+            oculusPrefab.transform.position = defaultStartLocation;
         }
         
 
