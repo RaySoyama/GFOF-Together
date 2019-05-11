@@ -338,9 +338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 1750082313}
-  secondsInFullDay: 360
+  secondsInFullDay: 120
   timeOfDay: 0
-  timeMultiplier: 2
+  timeMultiplier: 1
 --- !u!4 &1072433267
 Transform:
   m_ObjectHideFlags: 0
