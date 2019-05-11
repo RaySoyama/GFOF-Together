@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1750082313}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 1750082313}
-  secondsInFullDay: 120
-  timeOfDay: 0
+  secondsInFullDay: 15
+  timeOfDay: 0.77
   timeMultiplier: 1
 --- !u!4 &1072433267
 Transform:
@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1216939604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 1275366456}
   - component: {fileID: 1275366455}
   - component: {fileID: 1275366454}
+  - component: {fileID: 1275366458}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -537,6 +538,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1275366458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275366453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a42bb97c9f7c5418992b00183a7c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sun: {fileID: 1072433266}
+  growingSpeed: 1
+  growAmount: 0
+  size: 1.2
+  water: 1
+  totalWater: 10
+  sunEnergy: 0
+  totalEnergy: 0
+  sunToGrowthRatio: 2
+  waterToGrowthRatio: 3
+  growthThreshold: 5
 --- !u!1 &1750082312
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +572,7 @@ GameObject:
   - component: {fileID: 1750082314}
   - component: {fileID: 1750082313}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,16 +589,16 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 44.06
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -621,10 +645,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750082312}
-  m_LocalRotation: {x: 0.84223664, y: -0.04972336, z: -0.36359888, w: 0.39491883}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 38.982002, y: -123.02601, z: -151.498}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
