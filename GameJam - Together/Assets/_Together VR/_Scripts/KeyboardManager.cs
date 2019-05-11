@@ -5,14 +5,13 @@ using UnityEngine;
 public class KeyboardManager : MonoBehaviour
 {
     public GameObject oculusPrefab;
-    
-    // Start is called before the first frame update
+    public DigitalRuby.RainMaker.RainScript rainScript;
+
     void Start()
     {
-        
+      
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -21,5 +20,7 @@ public class KeyboardManager : MonoBehaviour
             oculusPrefab.transform.position = Vector3.zero;
         }
         
+
+
     }
 }
