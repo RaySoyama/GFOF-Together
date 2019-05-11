@@ -38,12 +38,12 @@ public class DayCycle : MonoBehaviour
         if (timeOfDay <= 0.20f || timeOfDay >= 0.80f)
         {
             intensityMultiplier = 0;
-        } else if (timeOfDay <= 0.20f)
+        } else if (timeOfDay <= 0.22f)
         {
             intensityMultiplier = Mathf.Clamp01((timeOfDay - 0.20f) * (1 / 0.02f));
-        } else if (timeOfDay >= 0.80f)
+        } else if (timeOfDay >= 0.78f)
         {
-            intensityMultiplier = Mathf.Clamp01(1 - (timeOfDay - 0.20f) * (1 / 0.02f));
+            intensityMultiplier = Mathf.Clamp01(1 - (timeOfDay - 0.78f) * (1 / 0.02f));
         }
 
         sun.intensity = initialIntensity * intensityMultiplier;

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
-    //public enum 
+    public enum GameSate
+    {
+        StartMenu,
+        
+
+    }
 
 
         
