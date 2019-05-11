@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
+    public enum GameSate
+    {
+        StartMenu,
+        
+
+    }
+
+
+        
     // Start is called before the first frame update
     void Start()
     {
