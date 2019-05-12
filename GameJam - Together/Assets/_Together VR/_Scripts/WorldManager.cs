@@ -61,6 +61,8 @@ public class WorldManager : MonoBehaviour
         isSeedGrabedFirst = false;
         isPlantWatered = false;
 
+        oculusPlayerController.GetComponent<CharacterController>().isTrigger = true;
+
         if (currentGameState == GameState.StartMenu)
         {
             oculusPlayerController.transform.position = startingPos;
@@ -108,7 +110,7 @@ public class WorldManager : MonoBehaviour
 
                 if (isSeedInPot == true)
                 {
-                    if (plantpot.transform.position != theVoid)
+                    if (plantpot.gameObject.activeSelf != false)
                     {
                         seededPot.transform.position = plantpot.transform.position;
                         seededPot.transform.rotation = plantpot.transform.rotation;
