@@ -264,6 +264,26 @@ PrefabInstance:
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2527876807878129915, guid: 5f6870a3bdb48b54a9de102fb2313316,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -289,6 +309,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2527876807878129915, guid: 5f6870a3bdb48b54a9de102fb2313316,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5abe3d711b38dbd4f828ec1de9ed7b83, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6870a3bdb48b54a9de102fb2313316, type: 3}
 --- !u!4 &106642158753535870 stripped
