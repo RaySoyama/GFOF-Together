@@ -18,12 +18,19 @@ public class KeyboardManager : MonoBehaviour
     {
 
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             oculusPrefab.transform.position = defaultStartLocation;
+            
         }
         
 
 
     }
+
+    public void asshole()
+    {
+        oculusPrefab.transform.position = defaultStartLocation;
+    }
+
 }
