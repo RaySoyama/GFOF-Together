@@ -61,7 +61,7 @@ public class WorldManager : MonoBehaviour
         isSeedGrabedFirst = false;
         isPlantWatered = false;
 
-        oculusPlayerController.GetComponent<CharacterController>().isTrigger = true;
+        //oculusPlayerController.GetComponent<CharacterController>().isTrigger = true;
 
         if (currentGameState == GameState.StartMenu)
         {
@@ -172,15 +172,15 @@ public class WorldManager : MonoBehaviour
     public IEnumerator  InitializeScene()
     {
         currentGameState = GameState.SeedPre;
-        StartCoroutine(OculusCenterCamera.Fade(0.0f, 1.0f));
+        //StartCoroutine(OculusCenterCamera.Fade(0.0f, 1.0f));
 
         //yield return new WaitForSeconds(3.0f);
         yield return new WaitForEndOfFrame();
 
         dayCycle.timeOfDay = 0.0f;
         //change shit
-        oculusPlayerController.transform.position = new Vector3(0,0,0);
-        StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
+        oculusPlayerController.transform.position = new Vector3(0,1,0);
+        //StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
 
     }
 
