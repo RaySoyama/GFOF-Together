@@ -8,7 +8,7 @@ public class PlantingPot : MonoBehaviour
     
     public WorldManager worldManager;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Seed"))
         {

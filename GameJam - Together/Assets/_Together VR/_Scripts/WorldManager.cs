@@ -112,8 +112,7 @@ public class WorldManager : MonoBehaviour
 
                 if (isSeedInPot == true)
                 {
-                    seedGameObject.transform.position = theVoid;
-                    seedGameObject.gameObject.SetActive(false);
+
                     
                     if (plantpot.gameObject.activeSelf != false)
                     {
@@ -139,15 +138,17 @@ public class WorldManager : MonoBehaviour
                             saplingTree.SetBool("Grow", true);
                             isPlantWatered = false;
                             currentGameState = GameState.Sapling;
+                            break;
                         }
                     }
-                    
+                    //seedGameObject.transform.position = theVoid;
+                    //seedGameObject.gameObject.SetActive(false);
                 }
 
                 if (Input.GetKeyUp(KeyCode.P))
                 {
-                    Destroy(plantpot);
-                    Destroy(seedGameObject);
+                    //Destroy(plantpot);
+                    //Destroy(seedGameObject);
 
                     isPlantWatered = true;
                 }
