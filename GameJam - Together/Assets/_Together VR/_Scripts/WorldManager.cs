@@ -178,14 +178,14 @@ public class WorldManager : MonoBehaviour
                         //do animation shit
 
                         //seededTreeAnim.SetBool("Fairy Lift", true);
-                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Fairy Lift"))
+                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Activate Fairy"))
                         {
                             seededTreeAnim.SetBool("Lift Plant", true);
                         }
 
 
                         //when anim done, make day time,
-                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Lift Plant"))
+                        if (seededTreeAnim.GetCurrentAnimatorStateInfo(0).IsName("Lift Plant"))
                         {
                             treeGrowthOne.transform.position = TreeGrowthOnePos;
                             seededPot.transform.position = theVoid;
@@ -236,17 +236,13 @@ public class WorldManager : MonoBehaviour
         //yield return new WaitForSeconds(3.0f);
         yield return new WaitForSeconds(2.0f);
 
+        menu.SetActive(false);
         dayCycle.timeOfDay = 0.0f;
         //change shit
         oculusPlayerController.transform.position = new Vector3(0,1,0);
         StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
 
     }
-
-    public void startGame()
-    {
-        isGameStarted = true;
-        menu.SetActive(false);
-    }
+    
 }
     
