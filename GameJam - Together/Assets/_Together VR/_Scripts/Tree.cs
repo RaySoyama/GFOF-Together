@@ -14,16 +14,13 @@ public class Tree : MonoBehaviour
     public float sunEnergy;
     public float totalEnergy;
     public float sunToGrowthRatio;
-    public float waterToGrowthRatio;
     public float growthThreshold;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        if (waterToGrowthRatio <= 0)
-        {
-            waterToGrowthRatio = 1;
-        }
+
     }
 
     // Update is called once per frame
@@ -54,5 +51,15 @@ public class Tree : MonoBehaviour
 
             transform.localScale *= size;
         }
+    }
+
+    private void OnParticleTrigger()
+    {
+
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        totalWater += water * Time.deltaTime * 2;
     }
 }
