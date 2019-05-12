@@ -912,11 +912,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planting Pot
       objectReference: {fileID: 0}
-    - target: {fileID: 2687344703189338047, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 1373602405076579756, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -972,116 +967,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8109508843967748280, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1987214691032503434, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3074863272086749866, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7218538343891947234, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849702780345005867, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318393802965492653, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6786131043572243464, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3012187785787529193, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009307416517939350, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694345427817184705, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023897148373127419, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6419009553397808316, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8725664064619439671, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846259685464157969, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2892566814007668571, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434820591059322501, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231313946221711895, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8234145891457648414, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5939756240039112897, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067872383126957093, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7597824275766677792, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_Name
-      value: collider
-      objectReference: {fileID: 0}
-    - target: {fileID: 1814892116917552337, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 471134797, guid: 8674b1d04ac340b4d9fd5702cedb3c51, type: 3}
+      propertyPath: worldManager
+      value: 
+      objectReference: {fileID: 1569520679}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8674b1d04ac340b4d9fd5702cedb3c51, type: 3}
 --- !u!1 &471134795 stripped
@@ -1090,42 +979,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 471134794}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &471134796 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 1814892116917552337, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-    type: 3}
-  m_PrefabInstance: {fileID: 471134794}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &471134797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471134795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac065ff4190bc447891d82fc12ab56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedCollider: {fileID: 471134796}
-  worldManager: {fileID: 1569520679}
---- !u!54 &471134798
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471134795}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &548678499
 PrefabInstance:
   m_ObjectHideFlags: 0

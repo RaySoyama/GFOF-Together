@@ -15,7 +15,6 @@ public class PlantingPot : MonoBehaviour
             worldManager.isSeedInPot = true;
             this.enabled = false;
         }
-
-        if (other == seedCollider)
+        
     }
 }
