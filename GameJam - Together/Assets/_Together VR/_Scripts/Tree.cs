@@ -37,6 +37,7 @@ public class Tree : MonoBehaviour
         if (growAmount >= growthThreshold)
         {
             growAmount = 0;
+            totalWater = 0;
 
             wm.isPlantWatered = true;
         }
