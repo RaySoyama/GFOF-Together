@@ -30,9 +30,12 @@ public class WorldManager : MonoBehaviour
     [ReadOnlyField]
     public GameState currentGameState;
     [ReadOnlyField]
+    public bool isGameStarted = false;
+    [ReadOnlyField]
     public bool isSeedInPot = false;
     [ReadOnlyField]
     public bool isSeedGrabedFirst = false;
+    public GameObject menu;
 
 
 
@@ -124,5 +127,11 @@ public class WorldManager : MonoBehaviour
         OculusCenterCamera.FadeOut();
         currentGameState = GameState.SeedPre;
 
+    }
+
+    public void startGame()
+    {
+        isGameStarted = true;
+        menu.SetActive(false);
     }
 }
