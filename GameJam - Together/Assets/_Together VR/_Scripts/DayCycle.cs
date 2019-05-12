@@ -6,7 +6,6 @@ public class DayCycle : MonoBehaviour
 {
 
     public Light sun;
-    public Light[] lights;
     public Color daylight;
     public float secondsInFullDay;
     [Range(0, 1)]
@@ -15,14 +14,12 @@ public class DayCycle : MonoBehaviour
     public bool canTimeAdvance;
 
     float initialIntensity;
-    float dirLightIntensity;
 
     // Start is called before the first frame update
     void Start()
     {
         
         initialIntensity = sun.intensity;
-        dirLightIntensity = lights[0].intensity;
     }
 
     // Update is called once per frame
@@ -58,10 +55,6 @@ public class DayCycle : MonoBehaviour
         }
 
         sun.intensity = initialIntensity * intensityMultiplier;
-        for (int i = 0; i < lights.Length; i++)
-        {
-            lights[i].intensity = dirLightIntensity * intensityMultiplier;
-        }
     }
 
     public void ChangeSun()
