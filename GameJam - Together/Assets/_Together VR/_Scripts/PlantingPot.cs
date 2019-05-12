@@ -7,25 +7,13 @@ public class PlantingPot : MonoBehaviour
     public BoxCollider seedCollider;
 
     bool seedPlanted;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public WorldManager worldManager;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Seed")
         {
-            seedPlanted = true;
+            worldManager.isSeedInPot = true;
         }
     }
 }
