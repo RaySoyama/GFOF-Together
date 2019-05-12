@@ -11,6 +11,7 @@ public class Tree : MonoBehaviour
     public float totalWater;
     public float growthThreshold;
 
+    [SerializeField]
     private float growAmount;
 
     // Start is called before the first frame update
