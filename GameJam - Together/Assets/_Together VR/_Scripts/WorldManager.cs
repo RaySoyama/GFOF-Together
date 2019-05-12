@@ -75,10 +75,10 @@ public class WorldManager : MonoBehaviour
 
             seededPot.transform.position = theVoid;
             treeGrowthOne.transform.position = theVoid;
-            //treeGrowthTwo.transform.position = theVoid;
-            //treeGrowthThree.transform.position = theVoid;
-            //treeGrowthFour.transform.position = theVoid;
-            //treeGrowthFive.transform.position = theVoid;
+            treeGrowthTwo.transform.position = theVoid;
+            treeGrowthThree.transform.position = theVoid;
+            treeGrowthFour.transform.position = theVoid;
+            treeGrowthFive.transform.position = theVoid;
 
         }
 
@@ -195,8 +195,6 @@ public class WorldManager : MonoBehaviour
                             dayCycle.canTimeAdvance = true;
                             currentGameState = GameState.GrowthOne;
                         }
-
-
 
                     }
                 }
