@@ -7,6 +7,8 @@ public class WorldManager : MonoBehaviour
     public enum GameSate
     {
         StartMenu,
+        Seed,
+        Sapling,
         
 
     }
