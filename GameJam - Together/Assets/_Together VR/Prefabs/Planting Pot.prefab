@@ -382,7 +382,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &471134797
 MonoBehaviour:
@@ -900,8 +900,7 @@ GameObject:
   - component: {fileID: 6199927839129103093}
   - component: {fileID: 4113440529468618378}
   - component: {fileID: 1814892116917552337}
-  - component: {fileID: 425886443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,23 +979,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &425886443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597824275766677792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a42bb97c9f7c5418992b00183a7c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wm: {fileID: 0}
-  growingSpeed: 1
-  water: 1
-  totalWater: 0
-  growthThreshold: 5
 --- !u!1 &8023897148373127419
 GameObject:
   m_ObjectHideFlags: 0
