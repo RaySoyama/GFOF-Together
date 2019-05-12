@@ -46,6 +46,11 @@ public class WorldManager : MonoBehaviour
     public GameState startingGameState = GameState.StartMenu;
     public Vector3 startingPos;
     public Vector3 TreeGrowthOnePos;
+    public Vector3 TreeGrowthTwoPos;
+    public Vector3 TreeGrowthThreePos;
+    public Vector3 TreeGrowthFourPos;
+    public Vector3 TreeGrowthFivePos;
+
 
     [ReadOnlyField]
     public GameState currentGameState;
@@ -58,6 +63,8 @@ public class WorldManager : MonoBehaviour
     [ReadOnlyField]
     public bool isPlantWatered = false;
     public GameObject menu;
+    [ReadOnlyField]
+    public bool garbageRunning = false;
 
 
     void Start()
@@ -66,6 +73,8 @@ public class WorldManager : MonoBehaviour
         isSeedInPot = false;
         isSeedGrabedFirst = false;
         isPlantWatered = false;
+
+        garbageRunning = false;
 
         //oculusPlayerController.GetComponent<CharacterController>().isTrigger = true;
 
@@ -80,6 +89,12 @@ public class WorldManager : MonoBehaviour
             treeGrowthFour.transform.position = theVoid;
             treeGrowthFive.transform.position = theVoid;
 
+            seededPot.SetActive(true);
+            treeGrowthOne.SetActive(false);
+            treeGrowthTwo.SetActive(false);
+            treeGrowthThree.SetActive(false);
+            treeGrowthFour.SetActive(false);
+            treeGrowthFive.SetActive(false);
         }
 
     }
@@ -115,9 +130,7 @@ public class WorldManager : MonoBehaviour
                 dayCycle.canTimeAdvance = true;
 
                 if (isSeedInPot == true)
-                {
-
-                    
+                {                  
                     if (plantpot.gameObject.activeSelf != false)
                     {
                         seededPot.transform.position = plantpot.transform.position;
@@ -126,8 +139,6 @@ public class WorldManager : MonoBehaviour
 
                         plantpot.transform.position = theVoid;
                         plantpot.SetActive(false);
-                        
-
                     }
 
                     if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
@@ -137,7 +148,7 @@ public class WorldManager : MonoBehaviour
                         if (isPlantWatered == true)
                         {
                             dayCycle.canTimeAdvance = true;
-                            dayCycle.timeOfDay = 0.1f;
+                            dayCycle.timeOfDay = 0.2f;
                             //Start growing the tree
                             saplingTreeAnim.SetBool("Grow", true);
                             isPlantWatered = false;
@@ -145,71 +156,91 @@ public class WorldManager : MonoBehaviour
                             break;
                         }
                     }
-                    //seedGameObject.transform.position = theVoid;
-                    //seedGameObject.gameObject.SetActive(false);
-                }
-
-                if (Input.GetKeyUp(KeyCode.P))
-                {
-                    //Destroy(plantpot);
-                    //Destroy(seedGameObject);
-
-                    isPlantWatered = true;
+                    seedGameObject.transform.position = theVoid;
+                    seedGameObject.gameObject.SetActive(false);
                 }
                 
                 break;
             case GameState.Sapling:
-
-
-
-                if (Input.GetKeyUp(KeyCode.P))
-                {
-                    isPlantWatered = true;
-                }
-
                 if (isPlantWatered == true)
                 {
 
                     if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
                     {
-                        fairyAnim.SetBool("Activate Fairy", true);
-                        dayCycle.canTimeAdvance = false;
-
-                        //do animation shit
-
-                        //seededTreeAnim.SetBool("Fairy Lift", true);
-                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Activate Fairy"))
-                        {
-                            seededTreeAnim.SetBool("Lift Plant", true);
+                        if(garbageRunning == false)
+                        { 
+                            StartCoroutine(LiteralGarbage());
+                            garbageRunning = true;
                         }
-
-
-                        //when anim done, make day time,
-                        if (seededTreeAnim.GetCurrentAnimatorStateInfo(0).IsName("Lift Plant"))
-                        {
-                            treeGrowthOne.transform.position = TreeGrowthOnePos;
-                            seededPot.transform.position = theVoid;
-                            //seededPot.gameObject.SetActive(false);
-                            Destroy(seededPot);
-                            dayCycle.timeOfDay = 0.1f;
-                            dayCycle.canTimeAdvance = true;
-                            currentGameState = GameState.GrowthOne;
-                        }
-
                     }
+                }
+                break;
+            case GameState.GrowthOne:
+
+                if (dayCycle.timeOfDay > 0.9f)
+                {
+                    treeGrowthOne.transform.position = theVoid;
+                    treeGrowthOne.SetActive(false);
+
+                    treeGrowthTwo.transform.position = TreeGrowthTwoPos;
+                    treeGrowthTwo.SetActive(true);
+
+                    dayCycle.timeOfDay = 0.15f;
+                    currentGameState = GameState.GrowthTwo;
+                }
+
+                break;
+            case GameState.GrowthTwo:
+
+                if (dayCycle.timeOfDay > 0.9f)
+                {
+                    treeGrowthTwo.transform.position = theVoid;
+                    treeGrowthTwo.SetActive(false);
+
+                    treeGrowthThree.transform.position = TreeGrowthThreePos;
+                    treeGrowthThree.SetActive(true);
+
+                    dayCycle.timeOfDay = 0.15f;
+                    currentGameState = GameState.GrowthThree;
+                }
+
+                break;
+            case GameState.GrowthThree:
+
+
+                if (dayCycle.timeOfDay > 0.9f)
+                {
+                    treeGrowthThree.transform.position = theVoid;
+                    treeGrowthThree.SetActive(false);
+
+                    treeGrowthFour.transform.position = TreeGrowthFourPos;
+                    treeGrowthFour.SetActive(true);
+
+                    dayCycle.timeOfDay = 0.15f;
+                    currentGameState = GameState.GrowthTwo;
+                }
+
+                break;
+            case GameState.GrowthFour:
+
+                if (dayCycle.timeOfDay > 0.9f)
+                {
+                    treeGrowthFour.transform.position = theVoid;
+                    treeGrowthFour.SetActive(false);
+
+                    treeGrowthFive.transform.position = TreeGrowthFivePos;
+                    treeGrowthFive.SetActive(true);
+
+                    dayCycle.timeOfDay = 0.15f;
+                    currentGameState = GameState.GrowthTwo;
                 }
 
 
                 break;
-            case GameState.GrowthOne:
-                break;
-            case GameState.GrowthTwo:
-                break;
-            case GameState.GrowthThree:
-                break;
-            case GameState.GrowthFour:
-                break;
             case GameState.GrowthFive:
+
+                StartCoroutine(DeathTimer());
+
                 break;
             case GameState.EndScene:
                 break;
@@ -219,11 +250,40 @@ public class WorldManager : MonoBehaviour
                 break;
         }
 
-
-
-
     }
 
+    public IEnumerator LiteralGarbage()
+    {
+
+        fairyAnim.SetBool("Activate Fairy", true);
+
+        dayCycle.timeOfDay = 0.75f;
+        dayCycle.canTimeAdvance = true;
+
+        yield return new WaitForSeconds(5.0f);
+        
+        dayCycle.timeOfDay = 0.1f;
+
+        dayCycle.canTimeAdvance = false;
+
+        yield return new WaitForSeconds(5.0f);
+
+        seededTreeAnim.SetBool("Lift Plant", true);
+
+        //when anim done, make day time,
+        yield return new WaitForSeconds(9.0f);
+
+        treeGrowthOne.SetActive(true);
+        treeGrowthOne.transform.position = TreeGrowthOnePos;
+
+        seededPot.transform.position = theVoid;
+        //seededPot.gameObject.SetActive(false);
+        Destroy(seededPot);
+
+        dayCycle.timeOfDay = 0.2f;
+        dayCycle.canTimeAdvance = true;
+        currentGameState = GameState.GrowthOne;
+    }
 
     public IEnumerator  InitializeScene()
     {
@@ -239,8 +299,20 @@ public class WorldManager : MonoBehaviour
         //change shit
         oculusPlayerController.transform.position = new Vector3(0,1,0);
         StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
+    }
+
+    public IEnumerator DeathTimer()
+    {
+        yield return new WaitForSeconds(10.0f);
+        StartCoroutine(OculusCenterCamera.Fade(0.0f, 1.0f));
+        yield return new WaitForSeconds(2.0f);
+        oculusPlayerController.transform.position = startingPos;
+
+        StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
+
+
+        //cadetunrthis object on
 
     }
-    
 }
     
