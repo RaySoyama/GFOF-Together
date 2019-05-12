@@ -114,7 +114,7 @@ public class WorldManager : MonoBehaviour
                 {
                     seedGameObject.transform.position = theVoid;
                     seedGameObject.gameObject.SetActive(false);
-
+                    
                     if (plantpot.gameObject.activeSelf != false)
                     {
                         seededPot.transform.position = plantpot.transform.position;
@@ -123,6 +123,8 @@ public class WorldManager : MonoBehaviour
 
                         plantpot.transform.position = theVoid;
                         plantpot.SetActive(false);
+                        
+
                     }
 
                     if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
@@ -144,11 +146,16 @@ public class WorldManager : MonoBehaviour
 
                 if (Input.GetKeyUp(KeyCode.P))
                 {
+                    Destroy(plantpot);
+                    Destroy(seedGameObject);
+
                     isPlantWatered = true;
                 }
                 
                 break;
             case GameState.Sapling:
+
+
 
                 if (Input.GetKeyUp(KeyCode.P))
                 {
@@ -168,7 +175,8 @@ public class WorldManager : MonoBehaviour
                         {
                             treeGrowthOne.transform.position = TreeGrowthOnePos;
                             seededPot.transform.position = theVoid;
-                            seededPot.gameObject.SetActive(false);
+                            //seededPot.gameObject.SetActive(false);
+                            Destroy(seededPot);
                             dayCycle.timeOfDay = 0.1f;
                             dayCycle.canTimeAdvance = true;
                             currentGameState = GameState.GrowthOne;

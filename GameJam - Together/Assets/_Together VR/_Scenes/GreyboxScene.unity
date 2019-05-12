@@ -1072,11 +1072,27 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7597824275766677792, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
+        type: 3}
+      propertyPath: m_Name
+      value: collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814892116917552337, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8674b1d04ac340b4d9fd5702cedb3c51, type: 3}
 --- !u!1 &471134795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2687344703189338047, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
+    type: 3}
+  m_PrefabInstance: {fileID: 471134794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &471134796 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 1814892116917552337, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
     type: 3}
   m_PrefabInstance: {fileID: 471134794}
   m_PrefabAsset: {fileID: 0}
@@ -1092,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac065ff4190bc447891d82fc12ab56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedCollider: {fileID: 1211545109}
+  seedCollider: {fileID: 471134796}
   worldManager: {fileID: 1569520679}
 --- !u!54 &471134798
 Rigidbody:
@@ -1206,6 +1222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mountains
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631627426598956012, guid: 567d93696d143154ab5258fd7043ae52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2841434526633793478, guid: 567d93696d143154ab5258fd7043ae52,
         type: 3}
@@ -1597,7 +1618,7 @@ PrefabInstance:
     - target: {fileID: 7427764152835533692, guid: 02f00cee512abc14b84081b57b84e008,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47479016
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: 7427764152835533692, guid: 02f00cee512abc14b84081b57b84e008,
         type: 3}
@@ -1904,12 +1925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff5b1f04dece7440b6f0886ee13f147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1211545109 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 929289507789737406, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
-    type: 3}
-  m_PrefabInstance: {fileID: 471134794}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1236842697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1462487071426274135, guid: dd655df7d30c45641b9109992b97fcd8,
