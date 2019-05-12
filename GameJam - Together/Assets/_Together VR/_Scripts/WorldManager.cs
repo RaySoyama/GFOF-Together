@@ -98,7 +98,7 @@ public class WorldManager : MonoBehaviour
                 if (Input.GetKeyUp(KeyCode.P))
                 {
                     StartCoroutine(InitializeScene());
-                }
+                }   
 
                 break;
 
