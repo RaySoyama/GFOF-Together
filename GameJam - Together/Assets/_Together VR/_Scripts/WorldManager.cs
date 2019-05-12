@@ -51,6 +51,9 @@ public class WorldManager : MonoBehaviour
     public Vector3 TreeGrowthFourPos;
     public Vector3 TreeGrowthFivePos;
 
+    [Header("OVR controller")]
+    public OVRInput.Controller leftController;
+    public OVRInput.Controller rightController;
 
     [ReadOnlyField]
     public GameState currentGameState;
@@ -108,12 +111,17 @@ public class WorldManager : MonoBehaviour
 
                 dayCycle.timeOfDay = 0.5f;
                 dayCycle.canTimeAdvance = false;
-
-                //StartingScene as for now, press K to skip
-                if (Input.GetKeyUp(KeyCode.P))
+                    
+                if(Input.GetKeyDown(KeyCode.P))
                 {
                     StartCoroutine(InitializeScene());
-                }   
+                }
+
+                Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, rightController));
+                if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, rightController) >= 0.1f || OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger, leftController) >= 0.1f)
+                {
+                    StartCoroutine(InitializeScene());
+                }
 
                 break;
 
@@ -177,7 +185,7 @@ public class WorldManager : MonoBehaviour
                 break;
             case GameState.GrowthOne:
 
-                if (dayCycle.timeOfDay > 0.9f)
+                if (dayCycle.timeOfDay > 0.85f)
                 {
                     treeGrowthOne.transform.position = theVoid;
                     treeGrowthOne.SetActive(false);
@@ -192,7 +200,7 @@ public class WorldManager : MonoBehaviour
                 break;
             case GameState.GrowthTwo:
 
-                if (dayCycle.timeOfDay > 0.9f)
+                if (dayCycle.timeOfDay > 0.85f)
                 {
                     treeGrowthTwo.transform.position = theVoid;
                     treeGrowthTwo.SetActive(false);
@@ -208,7 +216,7 @@ public class WorldManager : MonoBehaviour
             case GameState.GrowthThree:
 
 
-                if (dayCycle.timeOfDay > 0.9f)
+                if (dayCycle.timeOfDay > 0.85f)
                 {
                     treeGrowthThree.transform.position = theVoid;
                     treeGrowthThree.SetActive(false);
@@ -217,13 +225,13 @@ public class WorldManager : MonoBehaviour
                     treeGrowthFour.SetActive(true);
 
                     dayCycle.timeOfDay = 0.15f;
-                    currentGameState = GameState.GrowthTwo;
+                    currentGameState = GameState.GrowthFour;
                 }
 
                 break;
             case GameState.GrowthFour:
 
-                if (dayCycle.timeOfDay > 0.9f)
+                if (dayCycle.timeOfDay > 0.85f)
                 {
                     treeGrowthFour.transform.position = theVoid;
                     treeGrowthFour.SetActive(false);
@@ -232,7 +240,7 @@ public class WorldManager : MonoBehaviour
                     treeGrowthFive.SetActive(true);
 
                     dayCycle.timeOfDay = 0.15f;
-                    currentGameState = GameState.GrowthTwo;
+                    currentGameState = GameState.GrowthFive;
                 }
 
 
@@ -257,10 +265,10 @@ public class WorldManager : MonoBehaviour
 
         fairyAnim.SetBool("Activate Fairy", true);
 
-        dayCycle.timeOfDay = 0.75f;
+        dayCycle.timeOfDay = 0.8f;
         dayCycle.canTimeAdvance = true;
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(4.5f);
         
         dayCycle.timeOfDay = 0.1f;
 
@@ -282,6 +290,8 @@ public class WorldManager : MonoBehaviour
 
         dayCycle.timeOfDay = 0.2f;
         dayCycle.canTimeAdvance = true;
+
+        dayCycle.timeMultiplier = 2.0f;
         currentGameState = GameState.GrowthOne;
     }
 
