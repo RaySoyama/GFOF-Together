@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5292635494362951091}
   - component: {fileID: 2480934645263450300}
   m_Layer: 0
-  m_Name: WateringCan_Empty
+  m_Name: WateringCanWithPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
         type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 256
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 2527876807878129916, guid: 5f6870a3bdb48b54a9de102fb2313316,
         type: 3}
