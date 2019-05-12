@@ -6,6 +6,8 @@ public class Tree : MonoBehaviour
 {
 
     public WorldManager wm;
+    public Renderer myMat;
+    public Color wetDirtColor;
     public float growingSpeed;
     public float water;
     public float totalWater;
@@ -17,7 +19,7 @@ public class Tree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -39,8 +41,14 @@ public class Tree : MonoBehaviour
             growAmount = 0;
             totalWater = 0;
 
+            SetMaterialColor(wetDirtColor);
             wm.isPlantWatered = true;
         }
+    }
+
+    public void SetMaterialColor(Color newColor)
+    {
+        myMat.material.color = newColor;
     }
 
     private void OnParticleCollision(GameObject other)
