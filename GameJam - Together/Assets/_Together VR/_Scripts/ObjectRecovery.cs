@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class entry
+{
+    public GameObject item;
+    public Vector3 returnPoint;
+    [HideInInspector]
+    public Rigidbody rigidBody;
+}
+
 public class ObjectRecovery : MonoBehaviour
 {
-    public GameObject[] objects;
-    Rigidbody[] rigidBodies;
+    public Vector3 smallCorner;
+    public Vector3 largeCorner;
+    public entry[] objects;
     
     void Start()
     {
-        rigidBodies = new Rigidbody[objects.Length];
         for(int i = 0; i < objects.Length; i++)
         {
-            rigidBodies[i] = objects[i].GetComponent<Rigidbody>();
+            objects[i].rigidBody = objects[i].item.GetComponent<Rigidbody>();
         }
-
     }
 
 
@@ -22,12 +30,21 @@ public class ObjectRecovery : MonoBehaviour
     {
         for(int i = 0; i < objects.Length; i++)
         {
-            if (objects[i].transform.position.y < 0)
+            if (objects[i].item.transform.position.x < smallCorner.x || objects[i].item.transform.position.y < smallCorner.y || objects[i].item.transform.position.z < smallCorner.z
+            || objects[i].item.transform.position.x > largeCorner.x || objects[i].item.transform.position.y > largeCorner.y || objects[i].item.transform.position.z > largeCorner.z)
             {
-                Vector3 newPos = new Vector3(objects[i].transform.position.x, 1, objects[i].transform.position.z);
-                objects[i].transform.position = newPos;
-                rigidBodies[i].velocity = Vector3.zero;
+                objects[i].item.transform.position = objects[i].returnPoint;
+                objects[i].rigidBody.velocity = Vector3.zero;
+                objects[i].rigidBody.angularVelocity = Vector3.zero;
+                Debug.Log("Test");
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(smallCorner, 0.1f);
+        Gizmos.DrawSphere(largeCorner, 0.1f);
     }
 }
