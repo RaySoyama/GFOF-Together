@@ -44,11 +44,14 @@ public class WorldManager : MonoBehaviour
     [ReadOnlyField]
     public GameState currentGameState;
     [ReadOnlyField]
+    public bool isGameStarted = false;
+    [ReadOnlyField]
     public bool isSeedInPot = false;
     [ReadOnlyField]
     public bool isSeedGrabedFirst = false;
     [ReadOnlyField]
     public bool isPlantWatered = false;
+    public GameObject menu;
 
 
     void Start()
@@ -177,6 +180,12 @@ public class WorldManager : MonoBehaviour
         oculusPlayerController.transform.position = new Vector3(0,0,0);
         StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
 
+    }
+
+    public void startGame()
+    {
+        isGameStarted = true;
+        menu.SetActive(false);
     }
 }
     
