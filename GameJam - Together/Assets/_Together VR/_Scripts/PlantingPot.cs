@@ -13,6 +13,7 @@ public class PlantingPot : MonoBehaviour
         if (other.tag == "Seed")
         {
             worldManager.isSeedInPot = true;
+            this.enabled = false;
         }
     }
 }
