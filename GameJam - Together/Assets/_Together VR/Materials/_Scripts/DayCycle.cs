@@ -11,6 +11,7 @@ public class DayCycle : MonoBehaviour
     [Range(0, 1)]
     public float timeOfDay = 0;
     public float timeMultiplier;
+    public bool canTimeAdvance;
 
     float initialIntensity;
     float dirLightIntensity;
@@ -25,12 +26,15 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AdvanceTime(0);
+        if (canTimeAdvance)
+        {
+            AdvanceTime(0);
 
-        timeOfDay += (Time.deltaTime / secondsInFullDay) * timeMultiplier;
+            timeOfDay += (Time.deltaTime / secondsInFullDay) * timeMultiplier;
 
-        if (timeOfDay >= 1)
-            timeOfDay = 0;
+            if (timeOfDay >= 1)
+                timeOfDay = 0;
+        }
     }
 
     void AdvanceTime(float increment)
