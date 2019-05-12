@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
-    public enum GameSate
+    public enum GameState
     {
         StartMenu,
         SeedPre,
@@ -24,12 +24,15 @@ public class WorldManager : MonoBehaviour
     public GameObject oculusPlayerController;
     public DayCycle dayCycle;
 
-    public GameSate startingGameState = GameSate.StartMenu;
+    public GameState startingGameState = GameState.StartMenu;
+    public Vector3 startingPos;
 
     [ReadOnlyField]
-    public GameSate currentGameState;
+    public GameState currentGameState;
     [ReadOnlyField]
     public bool isSeedInPot = false;
+    [ReadOnlyField]
+    public bool isSeedGrabedFirst = false;
 
 
 
@@ -39,6 +42,13 @@ public class WorldManager : MonoBehaviour
     {
         currentGameState = startingGameState;
         isSeedInPot = false;
+        isSeedGrabedFirst = false;
+
+        if (currentGameState == GameState.StartMenu)
+        {
+            oculusPlayerController.transform.position = startingPos;
+        }
+
     }
 
     void Update()
@@ -46,41 +56,51 @@ public class WorldManager : MonoBehaviour
 
         switch (currentGameState)
         {
-            case GameSate.StartMenu:
+            case GameState.StartMenu:
+
+                dayCycle.canTimeAdvance = false;
+                dayCycle.timeOfDay = 0.5f;
 
                 //StartingScene as for now, press K to skip
-                if (Input.GetKeyUp(KeyCode.K))
+                if (Input.GetKeyUp(KeyCode.P))
                 {
-                    currentGameState = GameSate.Seed;
+                    currentGameState = GameState.Seed;
                 }
-                break;
-            case GameSate.SeedPre:
-                //make sene dark
-                //daycyle shit make day stop transition
-
-                //make 
-                
 
                 break;
+            case GameState.SeedPre:
 
-            case GameSate.Seed:
+                dayCycle.timeOfDay = 0.0f;
+
+                //when seed is first touched
+                if(Input.GetKeyUp(KeyCode.L))
+                {
+                    currentGameState = GameState.Seed;
+                }
 
                 break;
-            case GameSate.Sapling:
+
+            case GameState.Seed:
+                dayCycle.canTimeAdvance = true;
+
+
+
                 break;
-            case GameSate.GrowthOne:
+            case GameState.Sapling:
                 break;
-            case GameSate.GrowthTwo:
+            case GameState.GrowthOne:
                 break;
-            case GameSate.GrowthThree:
+            case GameState.GrowthTwo:
                 break;
-            case GameSate.GrowthFour:
+            case GameState.GrowthThree:
                 break;
-            case GameSate.GrowthFive:
+            case GameState.GrowthFour:
                 break;
-            case GameSate.EndScene:
+            case GameState.GrowthFive:
                 break;
-            case GameSate.EndMenu:
+            case GameState.EndScene:
+                break;
+            case GameState.EndMenu:
                 break;
             default:
                 break;
@@ -102,7 +122,7 @@ public class WorldManager : MonoBehaviour
         oculusPlayerController.transform.position = Vector3.zero;
        
         OculusCenterCamera.FadeOut();
-        currentGameState = GameSate.SeedPre;
+        currentGameState = GameState.SeedPre;
 
     }
 }
