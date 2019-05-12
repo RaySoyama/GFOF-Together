@@ -6,6 +6,7 @@ public class Tree : MonoBehaviour
 {
 
     public DayCycle sun;
+    public WorldManager wm;
     public float growingSpeed;
     public float growAmount;
     public float size;
@@ -28,16 +29,18 @@ public class Tree : MonoBehaviour
     {
 
         float growIncrement = 0;
-        growIncrement = growIncrement + (water + sunEnergy) * growingSpeed * Time.deltaTime;
+        //growIncrement = growIncrement + (water + sunEnergy) * growingSpeed * Time.deltaTime;
 
-        if (sun.timeOfDay >= 0.23f && sun.timeOfDay <= 0.78f)
-        {
-            sunEnergy = growingSpeed / sunToGrowthRatio;
-        }
-        else
-        {
-            sunEnergy = 0;
-        }
+        //if (sun.timeOfDay >= 0.23f && sun.timeOfDay <= 0.78f)
+        //{
+        //    sunEnergy = growingSpeed / sunToGrowthRatio;
+        //}
+        //else
+        //{
+        //    sunEnergy = 0;
+        //}
+
+        growIncrement = water * growingSpeed * Time.deltaTime;
 
         if (totalWater > 0)
         {
