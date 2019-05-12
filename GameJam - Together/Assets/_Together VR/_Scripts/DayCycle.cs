@@ -26,9 +26,11 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeSun();
+
         if (canTimeAdvance)
         {
-            AdvanceTime(0);
+            AdvanceTime();
 
             timeOfDay += (Time.deltaTime / secondsInFullDay) * timeMultiplier;
 
@@ -37,10 +39,9 @@ public class DayCycle : MonoBehaviour
         }
     }
 
-    void AdvanceTime(float increment)
+    void AdvanceTime()
     {
-        sun.transform.localRotation = Quaternion.Euler((timeOfDay * 360f - 90), 170, 0);
-
+       
         float intensityMultiplier = 1;
         if (timeOfDay <= 0.20f || timeOfDay >= 0.80f)
         {
@@ -58,5 +59,10 @@ public class DayCycle : MonoBehaviour
         {
             lights[i].intensity = dirLightIntensity * intensityMultiplier;
         }
+    }
+
+    public void ChangeSun()
+    {
+        sun.transform.localRotation = Quaternion.Euler((timeOfDay * 360f - 90), 170, 0);
     }
 }
