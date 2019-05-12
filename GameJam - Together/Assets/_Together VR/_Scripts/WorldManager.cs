@@ -58,7 +58,7 @@ public class WorldManager : MonoBehaviour
                 //make sene dark
                 //daycyle shit make day stop transition
 
-                
+                //make 
                 
 
                 break;
