@@ -17,7 +17,8 @@ public class Seed : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            Debug.Log("grabbed");
+            wm.isSeedGrabedFirst = true;
+            this.enabled = false;
         }
     }
 }
