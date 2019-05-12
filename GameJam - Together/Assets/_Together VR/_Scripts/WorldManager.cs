@@ -26,12 +26,16 @@ public class WorldManager : MonoBehaviour
 
     public Vector3 theVoid;
 
+    [Header("Anim")]
+    public Animator saplingTreeAnim;
+    public Animator seededTreeAnim;
+    public Animator fairyAnim;
+
     [Header("Plants n shit")]
     //plants
     public GameObject seedGameObject;
     public GameObject plantpot;
     public GameObject seededPot;
-    public Animator saplingTree;
     public GameObject treeGrowthOne;
     public GameObject treeGrowthTwo;
     public GameObject treeGrowthThree;
@@ -135,7 +139,7 @@ public class WorldManager : MonoBehaviour
                             dayCycle.canTimeAdvance = true;
                             dayCycle.timeOfDay = 0.1f;
                             //Start growing the tree
-                            saplingTree.SetBool("Grow", true);
+                            saplingTreeAnim.SetBool("Grow", true);
                             isPlantWatered = false;
                             currentGameState = GameState.Sapling;
                             break;
@@ -165,14 +169,23 @@ public class WorldManager : MonoBehaviour
 
                 if (isPlantWatered == true)
                 {
+
                     if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
                     {
+                        fairyAnim.SetBool("Activate Fairy", true);
                         dayCycle.canTimeAdvance = false;
 
                         //do animation shit
 
+                        //seededTreeAnim.SetBool("Fairy Lift", true);
+                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Fairy Lift"))
+                        {
+                            seededTreeAnim.SetBool("Lift Plant", true);
+                        }
+
+
                         //when anim done, make day time,
-                        if (Input.GetKeyUp(KeyCode.P))
+                        if (fairyAnim.GetCurrentAnimatorStateInfo(0).IsName("Lift Plant"))
                         {
                             treeGrowthOne.transform.position = TreeGrowthOnePos;
                             seededPot.transform.position = theVoid;
