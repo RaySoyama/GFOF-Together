@@ -19,21 +19,14 @@ public class WateringCan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         rotX = transform.eulerAngles.x;
-
-        //Debug.Log(rotX);
-        //-12 to -90
-        if (rotX > 270 && rotX < 348f)
+        if (rotX < 270 && rotX > 30)
         {
-            //fuck math big brain too tired
-            emissionModule.rateOverTime = 348 - rotX ;
-            Debug.Log(emissionModule.rateOverTime);
+            emissionModule.rateOverTime = ((rotX - -12) / (-90 - 12));
         }
         else
         {
             emissionModule.rateOverTime = 0;
         }
-
     }
 }

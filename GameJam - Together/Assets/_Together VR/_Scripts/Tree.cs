@@ -5,18 +5,13 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
 
-    public DayCycle sun;
     public WorldManager wm;
     public float growingSpeed;
-    public float growAmount;
-    public float size;
     public float water;
     public float totalWater;
-    public float sunEnergy;
-    public float totalEnergy;
-    public float sunToGrowthRatio;
     public float growthThreshold;
-    
+
+    private float growAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -29,16 +24,6 @@ public class Tree : MonoBehaviour
     {
 
         float growIncrement = 0;
-        //growIncrement = growIncrement + (water + sunEnergy) * growingSpeed * Time.deltaTime;
-
-        //if (sun.timeOfDay >= 0.23f && sun.timeOfDay <= 0.78f)
-        //{
-        //    sunEnergy = growingSpeed / sunToGrowthRatio;
-        //}
-        //else
-        //{
-        //    sunEnergy = 0;
-        //}
 
         growIncrement = water * growingSpeed * Time.deltaTime;
 
@@ -52,13 +37,8 @@ public class Tree : MonoBehaviour
         {
             growAmount = 0;
 
-            transform.localScale *= size;
+            wm.isPlantWatered = true;
         }
-    }
-
-    private void OnParticleTrigger()
-    {
-
     }
 
     private void OnParticleCollision(GameObject other)

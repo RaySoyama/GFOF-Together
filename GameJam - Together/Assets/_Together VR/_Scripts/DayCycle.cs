@@ -7,6 +7,7 @@ public class DayCycle : MonoBehaviour
 
     public Light sun;
     public Light[] lights;
+    public Color daylight;
     public float secondsInFullDay;
     [Range(0, 1)]
     public float timeOfDay = 0;
@@ -19,6 +20,7 @@ public class DayCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         initialIntensity = sun.intensity;
         dirLightIntensity = lights[0].intensity;
     }
@@ -46,6 +48,7 @@ public class DayCycle : MonoBehaviour
         if (timeOfDay <= 0.20f || timeOfDay >= 0.80f)
         {
             intensityMultiplier = 0;
+            RenderSettings.ambientLight = Color.black;
         } else if (timeOfDay <= 0.22f)
         {
             intensityMultiplier = Mathf.Clamp01((timeOfDay - 0.20f) * (1 / 0.02f));
