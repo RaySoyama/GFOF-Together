@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlantingPot : MonoBehaviour
 {
-    public BoxCollider seedCollider;
+    public Collider seedCollider;
     
     public WorldManager worldManager;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Seed")
+        if (other.gameObject.CompareTag("Seed"))
         {
             worldManager.isSeedInPot = true;
             this.enabled = false;

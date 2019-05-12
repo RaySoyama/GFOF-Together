@@ -28,6 +28,7 @@ public class WorldManager : MonoBehaviour
 
     [Header("Plants n shit")]
     //plants
+    public GameObject seedGameObject;
     public GameObject plantpot;
     public GameObject seededPot;
     public Animator saplingTree;
@@ -40,15 +41,16 @@ public class WorldManager : MonoBehaviour
 
     public GameState startingGameState = GameState.StartMenu;
     public Vector3 startingPos;
+    public Vector3 TreeGrowthOnePos;
 
     [ReadOnlyField]
     public GameState currentGameState;
     [ReadOnlyField]
     public bool isGameStarted = false;
     [ReadOnlyField]
-    public bool isSeedInPot = false;
-    [ReadOnlyField]
     public bool isSeedGrabedFirst = false;
+    [ReadOnlyField]
+    public bool isSeedInPot = false;
     [ReadOnlyField]
     public bool isPlantWatered = false;
     public GameObject menu;
@@ -68,7 +70,7 @@ public class WorldManager : MonoBehaviour
             oculusPlayerController.transform.position = startingPos;
 
             seededPot.transform.position = theVoid;
-            //treeGrowthOne.transform.position = theVoid;
+            treeGrowthOne.transform.position = theVoid;
             //treeGrowthTwo.transform.position = theVoid;
             //treeGrowthThree.transform.position = theVoid;
             //treeGrowthFour.transform.position = theVoid;
@@ -110,6 +112,9 @@ public class WorldManager : MonoBehaviour
 
                 if (isSeedInPot == true)
                 {
+                    seedGameObject.transform.position = theVoid;
+                    seedGameObject.gameObject.SetActive(false);
+                    
                     if (plantpot.gameObject.activeSelf != false)
                     {
                         seededPot.transform.position = plantpot.transform.position;
@@ -118,6 +123,8 @@ public class WorldManager : MonoBehaviour
 
                         plantpot.transform.position = theVoid;
                         plantpot.SetActive(false);
+                        
+
                     }
 
                     if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
@@ -127,10 +134,10 @@ public class WorldManager : MonoBehaviour
                         if (isPlantWatered == true)
                         {
                             dayCycle.canTimeAdvance = true;
-
+                            dayCycle.timeOfDay = 0.1f;
                             //Start growing the tree
                             saplingTree.SetBool("Grow", true);
-
+                            isPlantWatered = false;
                             currentGameState = GameState.Sapling;
                         }
                     }
@@ -139,11 +146,48 @@ public class WorldManager : MonoBehaviour
 
                 if (Input.GetKeyUp(KeyCode.P))
                 {
+                    Destroy(plantpot);
+                    Destroy(seedGameObject);
+
                     isPlantWatered = true;
                 }
                 
                 break;
             case GameState.Sapling:
+
+
+
+                if (Input.GetKeyUp(KeyCode.P))
+                {
+                    isPlantWatered = true;
+                }
+
+                if (isPlantWatered == true)
+                {
+                    if (dayCycle.timeOfDay >= 0.8f || dayCycle.timeOfDay <= 0.2f)
+                    {
+                        dayCycle.canTimeAdvance = false;
+
+                        //do animation shit
+
+                        //when anim done, make day time,
+                        if (Input.GetKeyUp(KeyCode.P))
+                        {
+                            treeGrowthOne.transform.position = TreeGrowthOnePos;
+                            seededPot.transform.position = theVoid;
+                            //seededPot.gameObject.SetActive(false);
+                            Destroy(seededPot);
+                            dayCycle.timeOfDay = 0.1f;
+                            dayCycle.canTimeAdvance = true;
+                            currentGameState = GameState.GrowthOne;
+                        }
+
+
+
+                    }
+                }
+
+
                 break;
             case GameState.GrowthOne:
                 break;
@@ -172,15 +216,16 @@ public class WorldManager : MonoBehaviour
     public IEnumerator  InitializeScene()
     {
         currentGameState = GameState.SeedPre;
-        //StartCoroutine(OculusCenterCamera.Fade(0.0f, 1.0f));
+        StartCoroutine(OculusCenterCamera.Fade(0.0f, 1.0f));
 
+        isGameStarted = true;
         //yield return new WaitForSeconds(3.0f);
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2.0f);
 
         dayCycle.timeOfDay = 0.0f;
         //change shit
         oculusPlayerController.transform.position = new Vector3(0,1,0);
-        //StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
+        StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
 
     }
 
