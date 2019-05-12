@@ -52,6 +52,9 @@ public class DayCycle : MonoBehaviour
         } else if (timeOfDay >= 0.78f)
         {
             intensityMultiplier = Mathf.Clamp01(1 - (timeOfDay - 0.78f) * (1 / 0.02f));
+        } else
+        {
+            RenderSettings.ambientLight = daylight;
         }
 
         sun.intensity = initialIntensity * intensityMultiplier;
