@@ -449,15 +449,15 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 1f06ef460056ced429ba4135b0c51c19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01865d61b51cb6b41b769d12b744c846, type: 3}
---- !u!95 &204667390 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3120906344626540649, guid: 01865d61b51cb6b41b769d12b744c846,
-    type: 3}
-  m_PrefabInstance: {fileID: 204667389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204667391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1098135777755598508, guid: 01865d61b51cb6b41b769d12b744c846,
+    type: 3}
+  m_PrefabInstance: {fileID: 204667389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &204667393 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 630198386154090204, guid: 01865d61b51cb6b41b769d12b744c846,
     type: 3}
   m_PrefabInstance: {fileID: 204667389}
   m_PrefabAsset: {fileID: 0}
@@ -925,7 +925,7 @@ PrefabInstance:
     - target: {fileID: 1373602405076579756, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.088
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 1373602405076579756, guid: 8674b1d04ac340b4d9fd5702cedb3c51,
         type: 3}
@@ -971,6 +971,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471134798, guid: 8674b1d04ac340b4d9fd5702cedb3c51, type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 471134797, guid: 8674b1d04ac340b4d9fd5702cedb3c51, type: 3}
       propertyPath: worldManager
@@ -2339,6 +2343,7 @@ MonoBehaviour:
   - {fileID: 1287539166}
   - {fileID: 1153841916}
   - {fileID: 1074994270}
+  daylight: {r: 0, g: 0, b: 0, a: 0}
   secondsInFullDay: 75
   timeOfDay: 0.25
   timeMultiplier: 1
@@ -2455,10 +2460,12 @@ MonoBehaviour:
   oculusPlayerController: {fileID: 1035544927}
   dayCycle: {fileID: 1569520677}
   theVoid: {x: 0, y: -300, z: 0}
+  saplingTreeAnim: {fileID: 204667393}
+  seededTreeAnim: {fileID: 204667393}
+  fairyAnim: {fileID: 2138221556}
   seedGameObject: {fileID: 754728635}
   plantpot: {fileID: 471134795}
   seededPot: {fileID: 204667391}
-  saplingTree: {fileID: 204667390}
   treeGrowthOne: {fileID: 1236842697}
   treeGrowthTwo: {fileID: 0}
   treeGrowthThree: {fileID: 0}
@@ -4048,4 +4055,10 @@ Light:
   m_CorrespondingSourceObject: {fileID: 8755002671868198224, guid: 5b48a480f20816a45b12a6a4d6f20a43,
     type: 3}
   m_PrefabInstance: {fileID: 2078201740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2138221556 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1589031560435753689, guid: 01865d61b51cb6b41b769d12b744c846,
+    type: 3}
+  m_PrefabInstance: {fileID: 204667389}
   m_PrefabAsset: {fileID: 0}
