@@ -17,6 +17,6 @@ public class WateringCan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        emissionModule.rateOverTime = Mathf.Lerp(0, 25, 1);
+        emissionModule.rateOverTime = Mathf.Lerp(0, 75, -transform.rotation.x);
     }
 }
