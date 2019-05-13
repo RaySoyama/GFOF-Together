@@ -23,6 +23,7 @@ public class WorldManager : MonoBehaviour
     public OVRScreenFade OculusCenterCamera;
     public GameObject oculusPlayerController;
     public DayCycle dayCycle;
+    public Tree saplingTreeScript;
 
     public Vector3 theVoid;
 
@@ -65,10 +66,11 @@ public class WorldManager : MonoBehaviour
     public bool isSeedInPot = false;
     [ReadOnlyField]
     public bool isPlantWatered = false;
-    public GameObject menu;
     [ReadOnlyField]
     public bool garbageRunning = false;
 
+    public GameObject menu;
+    public GameObject credits;
 
     void Start()
     {
@@ -98,6 +100,8 @@ public class WorldManager : MonoBehaviour
             treeGrowthThree.SetActive(false);
             treeGrowthFour.SetActive(false);
             treeGrowthFive.SetActive(false);
+
+            credits.SetActive(false);
         }
 
     }
@@ -159,6 +163,7 @@ public class WorldManager : MonoBehaviour
                             dayCycle.timeOfDay = 0.2f;
                             //Start growing the tree
                             saplingTreeAnim.SetBool("Grow", true);
+                            saplingTreeScript.SetMaterialColor(Color.white);
                             isPlantWatered = false;
                             currentGameState = GameState.Sapling;
                             break;
@@ -279,7 +284,12 @@ public class WorldManager : MonoBehaviour
         seededTreeAnim.SetBool("Lift Plant", true);
 
         //when anim done, make day time,
-        yield return new WaitForSeconds(9.0f);
+        yield return new WaitForSeconds(7.0f);
+
+        fairyAnim.SetBool("Activate Fairy", false);
+
+        yield return new WaitForSeconds(2.0f);
+
 
         treeGrowthOne.SetActive(true);
         treeGrowthOne.transform.position = TreeGrowthOnePos;
@@ -291,7 +301,7 @@ public class WorldManager : MonoBehaviour
         dayCycle.timeOfDay = 0.2f;
         dayCycle.canTimeAdvance = true;
 
-        dayCycle.timeMultiplier = 2.0f;
+        dayCycle.timeMultiplier = 3.5f;
         currentGameState = GameState.GrowthOne;
     }
 
@@ -320,7 +330,9 @@ public class WorldManager : MonoBehaviour
 
         StartCoroutine(OculusCenterCamera.Fade(1.0f, 0.0f));
 
+        credits.SetActive(true);
 
+        currentGameState = GameState.EndMenu;
         //cadetunrthis object on
 
     }
