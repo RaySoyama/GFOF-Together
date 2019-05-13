@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 427bafcde44a3e64790727fd6497a1d2
+guid: ce74148e602df6642b2955e534d0faf3
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Grow Fruit
+    second: No Grow
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -15,7 +15,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Grow Fruit
+      name: No Grow
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
-      lastFrame: 280
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
